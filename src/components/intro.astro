@@ -1,0 +1,88 @@
+---
+import paint from "../assets/paint.png"
+import portrait from "../assets/main-portrait.jpg"
+---
+
+
+<div class="relative mx-12 flex flex-col items-center justify-center">
+    <h1 class="text-xl">Enter <span class="font-bold">KLDsolutions</span></h1>
+    <div class="relative">
+        <svg class="absolute h-full w-full overflow-visible">
+            <defs>
+              <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style={{ stopColor: "#DC3A2B", stopOpacity: 1 }}
+                ></stop>
+                <stop offset="100%" style={{ stopColor: "#E18510", stopOpacity: 1 }}
+                ></stop>
+              </linearGradient>
+            </defs>
+            <path
+              id="border-path"
+              fill="none"
+              stroke="url(#gradient)"
+              stroke-width="4"></path>
+          </svg>
+        <p id="anim-p" class="p-6 text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, esse cupiditate molestiae quis aliquid maiores corrupti qui veniam unde ad, amet eum exercitationem itaque! Culpa enim aperiam velit ullam nobis modi laudantium dolorum nostrum temporibus maxime quaerat eveniet voluptates incidunt nisi porro autem dolore deleniti vel harum, provident tenetur! Illum, maxime aperiam! Eaque amet itaque unde dicta earum alias molestiae aperiam commodi enim dolorum. Facere necessitatibus omnis consequatur quas aliquam. Deserunt aperiam cumque consectetur eligendi deleniti sunt repellat omnis? Deleniti debitis minus quaerat sit sapiente laboriosam, ad consectetur, iusto quas voluptates sunt neque doloribus deserunt atque officia tempore reprehenderit nobis.</p>
+    </div>
+    <div class="flex justify-center pt-12 text-center mb-12 xl:gap-16">
+        <div><h2 class="w-32">Art posts</h2><p id="art-counter" class="text-xl font-bold">85</p></div>
+        <div><h2 class="w-32">Youtube</h2><p id="youtube-counter" class="text-xl font-bold">1.2m</p></div>
+        <div><h2 class="w-32">Reviews</h2><p id="reviews-counter" class="text-xl font-bold">50</p></div>
+    </div>
+
+    <div class="relative">
+        <img class="h-full" src={portrait.src} alt="portrait">
+        <div class="absolute bottom-0 right-0 translate-y-1/4">
+            <img src={paint.src} alt="">
+        </div>
+    </div>
+</div>
+
+<div class="mt-12 h-4 w-full bg-black"></div>
+
+<style>
+    #border-path{
+        animation: draw 1s forwards ease-out;
+    }
+
+    @keyframes draw{
+        to {
+            stroke-dashoffset: 0;
+        }
+    }
+        
+    
+</style>
+
+<script>
+    function updatePath() {
+        const textMain = document.querySelector("#anim-p")
+        const path = document.querySelector("#border-path")
+
+        if(textMain && path) {
+            path.setAttribute('d', `M0,0 V${textMain.offsetHeight} H${textMain.offsetWidth} v${textMain.offsetHeight / 2}`)
+        }
+
+        const pathLength = path.getTotalLength();
+        path.style.strokeDasharray = pathLength.toString()
+        path.style.strokeDashoffset = pathLength.toString()
+    }
+
+    function incrementCounter(selector, current, target, duration, letter) {
+        let counter = document.getElementById(selector)
+        let stepTime = Math.abs(Math.floor(duration/ target))
+        if(current < target && counter) {
+            current++
+            counter.innerText = current.toString() + letter
+            setTimeout(() => incrementCounter(selector, current, target, duration, letter), stepTime)
+        }
+    }
+
+    incrementCounter("art-counter", 0, 85, 1000, '')
+    incrementCounter("youtube-counter", 0, 85, 1200, 'm')
+    incrementCounter("reviews-counter", 0, 50, 1000, '')
+    
+
+    window.addEventListener("DOMContentLoaded", updatePath)
+    window.addEventListener("resize", updatePath)
+</script>
