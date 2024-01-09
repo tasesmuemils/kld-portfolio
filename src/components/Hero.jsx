@@ -13,7 +13,7 @@ export default function Hero() {
                 initial={{ x: -100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ ease: "easeOut", duration: 0.6 }}
-                className="z-30 block rounded-lg bg-[hsl(0,0%,100%)] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-[hsla(0,0%,5%,0)] dark:shadow-black/20 md:px-12 lg:-mr-14 backdrop-blur-[30px]"
+                className="block rounded-lg bg-[hsl(0,0%,100%)] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-[hsla(0,0%,5%,0)] dark:shadow-black/20 md:px-12 lg:-mr-14 backdrop-blur-[30px]"
               >
                 <h1 className="mt-2 mb-2 text-4xl font-bold tracking-tight md:text-5xl xl:text-6xl">
                   Labākais piedāvājums <br />
@@ -38,7 +38,7 @@ export default function Hero() {
                   loop
                   muted
                   id="heroVideo"
-                  className="w-5/6 rounded-lg shadow-lg dark:shadow-black/20"
+                  className="w-full rounded-lg"
                 >
                   <source src={heroVideo} type="video/mp4" />
                 </video>
