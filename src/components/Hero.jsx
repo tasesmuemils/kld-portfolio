@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import heroVideo from "../assets/test.mp4";
 
 export default function Hero() {
   return (
@@ -26,11 +27,22 @@ export default function Hero() {
               transition={{ ease: "easeOut", duration: 0.6 }}
               className="md:mb-12 lg:mb-0"
             >
-              <img
+              {/* <img
                 src="https://tecdn.b-cdn.net/img/new/ecommerce/vertical/004.jpg"
                 className="w-full rounded-lg shadow-lg dark:shadow-black/20"
                 alt=""
-              />
+              /> */}
+              <div>
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  id="heroVideo"
+                  className="w-5/6 rounded-lg shadow-lg dark:shadow-black/20"
+                >
+                  <source src={heroVideo} type="video/mp4" />
+                </video>
+              </div>
             </motion.div>
           </div>
         </div>
