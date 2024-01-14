@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import heroVideo from "../assets/test.mp4";
+// import heroVideo from "../assets/test.mp4";
 
 export default function Hero() {
   return (
@@ -16,8 +16,8 @@ export default function Hero() {
                 className="block rounded-lg bg-[hsl(0,0%,100%)] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-[hsla(0,0%,5%,0)] dark:shadow-black/20 md:px-12 lg:-mr-14 backdrop-blur-[30px]"
               >
                 <h1 className="mt-2 mb-2 text-4xl font-bold tracking-tight md:text-5xl xl:text-6xl">
-                  Labākais piedāvājums <br />
-                  <span className="text-primary">jūsu biznesam</span>
+                  Tavs sapnis - <br />
+                  <span className="text-primary">mūsu realitāte</span>
                 </h1>
               </motion.div>
             </div>
@@ -27,11 +27,6 @@ export default function Hero() {
               transition={{ ease: "easeOut", duration: 0.6 }}
               className="md:mb-12 lg:mb-0"
             >
-              {/* <img
-                src="https://tecdn.b-cdn.net/img/new/ecommerce/vertical/004.jpg"
-                className="w-full rounded-lg shadow-lg dark:shadow-black/20"
-                alt=""
-              /> */}
               <div>
                 <video
                   autoPlay
@@ -40,7 +35,7 @@ export default function Hero() {
                   id="heroVideo"
                   className="w-full rounded-lg"
                 >
-                  <source src={heroVideo} type="video/mp4" />
+                  <source src="test.mp4" type="video/mp4" />
                 </video>
               </div>
             </motion.div>

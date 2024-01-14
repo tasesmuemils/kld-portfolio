@@ -1,4 +1,3 @@
-import avatar from "../assets/avatar.png";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import useMediaQuery from "../util/useMediaQuery";
