@@ -1,0 +1,154 @@
+---
+// import testImage from "../assets/test_image.jpg";
+import SliderItem from "./sliderItem.astro";
+import video_1 from "../assets/video_1.mp4";
+import video_2 from "../assets/video_2.mp4";
+import video_3 from "../assets/video_3.mp4";
+import video_10 from "../assets/video_10.mp4";
+// import video_7 from "../assets/video_7.mp4";
+// import video_6 from "../assets/video_6.mp4";
+import { Icon } from "astro-icon/components";
+---
+
+<section class="p-10 relative mb-40 mt-40" id="container">
+  <div id="slider" class="relative w-[1100px] h-[618px]">
+    <SliderItem
+      video={video_1}
+      title="TEST MAAAN"
+      description="Loti skaists video ka liek milet savu tevzemi. Musu prezidents ir forss calis"
+    />
+    <SliderItem
+      video={video_2}
+      title="TEST MAAAN"
+      description="Loti skaists video ka liek milet savu tevzemi. Musu prezidents ir forss calis"
+    />
+    <SliderItem
+      video={video_3}
+      title="TEST MAAAN"
+      description="Loti skaists video ka liek milet savu tevzemi. Musu prezidents ir forss calis"
+    />
+    <SliderItem
+      video={video_10}
+      title="TEST MAAAN"
+      description="Loti skaists video ka liek milet savu tevzemi. Musu prezidents ir forss calis"
+    />
+    <!-- <SliderItem
+      video={video_7}
+      title="TEST MAAAN"
+      description="Loti skaists video ka liek milet savu tevzemi. Musu prezidents ir forss calis"
+    />
+    <SliderItem
+      video={video_6}
+      title="TEST MAAAN"
+      description="Loti skaists video ka liek milet savu tevzemi. Musu prezidents ir forss calis"
+    /> -->
+  </div>
+  <div class="slider-buttons relative">
+    <div class="relative bottom-9 w-full text-center z-[222222]">
+      <button id="prev" class=""
+        ><Icon
+          name="material-symbols-light:arrow-circle-left-rounded"
+        /></button
+      >
+      <button id="next" class=""
+        ><Icon
+          name="material-symbols-light:arrow-circle-right-rounded"
+        /></button
+      >
+    </div>
+  </div>
+</section>
+
+<style is:global>
+  [data-icon] {
+    color: #fff;
+    width: 64px;
+    height: 64px;
+  }
+
+  .slider-item:nth-child(1),
+  .slider-item:nth-child(2) {
+    left: 0;
+    top: 0;
+    transform: translate(0, 0);
+    width: 100%;
+    height: 100%;
+    box-shadow: none;
+  }
+
+  .slider-item:nth-child(2) .video-content:before {
+    content: "";
+    position: absolute;
+    background: rgba(0, 0, 0, 0.143);
+    border-radius: 1rem;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  .slider-item:nth-child(3) {
+    left: 55%;
+  }
+
+  .slider-item:nth-child(4) {
+    left: calc(55% + 320px);
+  }
+
+  .slider-item:nth-child(5) {
+    left: calc(55% + 540px);
+    opacity: 0;
+  }
+
+  .slider-item:nth-child(n + 6) {
+    left: calc(50% + 760px);
+    opacity: 0;
+  }
+
+  .slider-item:nth-child(2) .slider-item-content {
+    display: block;
+    z-index: 11111;
+  }
+
+  .slider-item-content h2 {
+    opacity: 0;
+    animation: showcontent 0.6s ease-in-out 1 forwards;
+  }
+
+  .slider-item-content p {
+    opacity: 0;
+    animation: showcontent 0.6s ease-in-out 0.1s 1 forwards;
+  }
+
+  .slider-item-content a {
+    opacity: 0;
+    animation: showcontent 0.6s ease-in-out 0.3s 1 forwards;
+  }
+
+  @keyframes showcontent {
+    from {
+      opacity: 0;
+      transform: translate(0, 100px);
+      filter: blur(33px);
+    }
+    to {
+      opacity: 1;
+      transform: translate(0, 0);
+      filter: blur(0);
+    }
+  }
+</style>
+
+<script>
+  document.getElementById("next").onclick = function () {
+    let lists = document.querySelectorAll(".slider-item");
+    console.log(lists);
+    document.getElementById("slider").appendChild(lists[0]);
+  };
+
+  document.getElementById("prev").onclick = function () {
+    let lists = document.querySelectorAll(".slider-item");
+    document.getElementById("slider").prepend(lists[lists.length - 1]);
+  };
+</script>
