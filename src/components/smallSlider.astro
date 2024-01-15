@@ -10,8 +10,8 @@ import video_7 from "../assets/video_7.mp4";
 import { Icon } from "astro-icon/components";
 ---
 
-<section class="p-10 relative mb-10 mt-30" id="container">
-  <div id="small-slider" class="relative w-[300px] h-[533px]">
+<section class="grid justify-center mr-10 p-10 relative" id="container">
+  <div id="small-slider" class="relative w-[337px] h-[600px]">
     <SmallSliderItem
       video={video_6}
       title="TEST MAAAN"
@@ -23,12 +23,12 @@ import { Icon } from "astro-icon/components";
       description="Loti skaists video ka liek milet savu tevzemi. Musu prezidents ir forss calis"
     />
     <SmallSliderItem
-      video="/test.mp4"
+      video={video_6}
       title="TEST MAAAN"
       description="Loti skaists video ka liek milet savu tevzemi. Musu prezidents ir forss calis"
     />
     <SmallSliderItem
-      video={video_6}
+      video={video_7}
       title="TEST MAAAN"
       description="Loti skaists video ka liek milet savu tevzemi. Musu prezidents ir forss calis"
     />
@@ -48,19 +48,14 @@ import { Icon } from "astro-icon/components";
       description="Loti skaists video ka liek milet savu tevzemi. Musu prezidents ir forss calis"
     /> -->
   </div>
-  <div class="slider-buttons relative">
-    <div class="relative bottom-9 w-full text-center z-[222222]">
-      <button id="small-prev" class=""
-        ><Icon
-          name="material-symbols-light:arrow-circle-left-rounded"
-        /></button
-      >
-      <button id="small-next" class=""
-        ><Icon
-          name="material-symbols-light:arrow-circle-right-rounded"
-        /></button
-      >
-    </div>
+
+  <div class="slider-buttons relative bottom-9 w-full text-center z-[222222]">
+    <button id="small-prev" class=""
+      ><Icon name="material-symbols-light:arrow-circle-left-rounded" /></button
+    >
+    <button id="small-next" class=""
+      ><Icon name="material-symbols-light:arrow-circle-right-rounded" /></button
+    >
   </div>
 </section>
 
@@ -72,7 +67,9 @@ import { Icon } from "astro-icon/components";
   }
 
   .small-slider-item:nth-child(1),
-  .small-slider-item:nth-child(2) {
+  .small-slider-item:nth-child(2),
+  .small-slider-item:nth-child(3),
+  .small-slider-item:nth-child(n + 4) {
     left: 0;
     top: 0;
     transform: translate(0, 0);
@@ -81,7 +78,7 @@ import { Icon } from "astro-icon/components";
     box-shadow: none;
   }
 
-  .small-slider-item:nth-child(2) .video-content:before {
+  /* .small-slider-item:nth-child(2) .video-content:before {
     content: "";
     position: absolute;
     background: rgba(0, 0, 0, 0.143);
@@ -91,9 +88,9 @@ import { Icon } from "astro-icon/components";
     bottom: 0;
     left: 0;
     z-index: 1;
-  }
+  } */
 
-  .small-slider-item:nth-child(3) {
+  /* .small-slider-item:nth-child(3) {
     left: 80%;
   }
 
@@ -109,7 +106,7 @@ import { Icon } from "astro-icon/components";
   .small-slider-item:nth-child(n + 6) {
     left: calc(70% + 660px);
     opacity: 0;
-  }
+  } */
 
   .small-slider-item:nth-child(2) .small-slider-item-content {
     display: block;
