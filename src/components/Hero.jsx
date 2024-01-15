@@ -1,14 +1,25 @@
 import { motion } from "framer-motion";
-// import heroVideo from "../assets/test.mp4";
+import HeroVideo from "../assets/hero.mp4";
 
 export default function Hero() {
   return (
     <section className="mb-40">
       {/* <!-- Jumbotron --> */}
-      <div className="px-6 py-12 text-center md:px-12 lg:text-left">
+      <div className="px-6 py-0 text-center lg:text-left">
         <div className="w-100 mx-auto sm:max-w-2xl md:max-w-3xl lg:max-w-5xl xl:max-w-7xl xl:px-32">
-          <div className="grid items-center lg:grid-cols-2">
-            <div className="mb-12 md:mt-12 lg:mt-0 lg:mb-0">
+          <div className="grid items-center">
+            <div>
+              <video
+                autoPlay
+                loop
+                muted
+                id="heroVideo"
+                className="w-full rounded-lg"
+              >
+                <source src={HeroVideo} type="video/mp4" />
+              </video>
+            </div>
+            {/* <div className="mb-12 md:mt-12 lg:mt-0 lg:mb-0">
               <motion.div
                 initial={{ x: -100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
@@ -38,7 +49,7 @@ export default function Hero() {
                   <source src="test.mp4" type="video/mp4" />
                 </video>
               </div>
-            </motion.div>
+            </motion.div> */}
           </div>
         </div>
       </div>

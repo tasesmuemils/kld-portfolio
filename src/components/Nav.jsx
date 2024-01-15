@@ -25,8 +25,8 @@ export default function Nav() {
   const [toogle, setToogle] = useState(false);
   const matches = useMediaQuery("(min-width: 1280px)");
   return (
-    <nav className="relative mx-8 mb-24 flex justify-between items-center py-12 font-medium md:mx-16 lg:mx-32 bg-white z-30">
-      <svg
+    <nav className="relative mx-8 mb-0 flex justify-between items-center py-12 font-medium md:mx-16 lg:mx-32 bg-white z-30">
+      {/* <svg
         className="absolute bottom-0 left-1/2 -translate-x-1/2"
         width="250"
         height={4}
@@ -40,14 +40,14 @@ export default function Nav() {
           strokeWidth={2}
           strokeLinecap="round"
         />
-      </svg>
+      </svg> */}
       <div>
-        <h2 className="font-bold">KLD</h2>
+        <h2 className="font-bold">kld solutions</h2>
       </div>
 
-      <h1 className="text-lg font-bold absolute bottom-15 left-1/2 -translate-x-1/2">
-        <a href="/">KLD solutions</a>
-      </h1>
+      {/* <h1 className="text-lg font-bold absolute bottom-15 left-1/2 -translate-x-1/2">
+        <a href="/">kld solutions</a>
+      </h1> */}
 
       {matches && (
         <div className="flex gap-12">
