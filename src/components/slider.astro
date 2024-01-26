@@ -1,67 +1,70 @@
 ---
 // import testImage from "../assets/test_image.jpg";
 import SliderItem from "./sliderItem.astro";
-import video_1 from "../assets/video_1.mp4";
-import video_2 from "../assets/video_2.mp4";
-import video_3 from "../assets/video_3.mp4";
-import video_10 from "../assets/video_10.mp4";
-// import video_7 from "../assets/video_7.mp4";
-// import video_6 from "../assets/video_6.mp4";
+import ApImg from "../assets/image_apartment.jpeg";
+import Ap2Img from "../assets/image_apartment2.jpeg";
+import KdImg from "../assets/image_kindergarten.jpeg";
+import PcImg from "../assets/image_podcast.jpeg";
+
 import { Icon } from "astro-icon/components";
 ---
 
-<section class="p-10 relative mb-40" id="container">
-  <div id="slider" class="relative w-[1100px] h-[618px]">
-    <SliderItem
-      video={video_1}
-      title="TEST MAAAN"
-      description="Loti skaists video ka liek milet savu tevzemi. Musu prezidents ir forss calis"
-    />
-    <SliderItem
-      video={video_2}
-      title="TEST MAAAN"
-      description="Loti skaists video ka liek milet savu tevzemi. Musu prezidents ir forss calis"
-    />
-    <SliderItem
-      video={video_3}
-      title="TEST MAAAN"
-      description="Loti skaists video ka liek milet savu tevzemi. Musu prezidents ir forss calis"
-    />
-    <SliderItem
-      video={video_10}
-      title="TEST MAAAN"
-      description="Loti skaists video ka liek milet savu tevzemi. Musu prezidents ir forss calis"
-    />
-    <!-- <SliderItem
-      video={video_7}
-      title="TEST MAAAN"
-      description="Loti skaists video ka liek milet savu tevzemi. Musu prezidents ir forss calis"
-    />
-    <SliderItem
-      video={video_6}
-      title="TEST MAAAN"
-      description="Loti skaists video ka liek milet savu tevzemi. Musu prezidents ir forss calis"
-    /> -->
-  </div>
-  <div class="slider-buttons relative">
-    <div class="relative bottom-9 w-full text-center z-[222222]">
-      <button id="prev" class=""
-        ><Icon
-          name="material-symbols-light:arrow-circle-left-rounded"
-        /></button
-      >
-      <button id="next" class=""
-        ><Icon
-          name="material-symbols-light:arrow-circle-right-rounded"
-        /></button
-      >
+<section class="py-16 sm:py-20">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="flex flex-col gap-12 sm:gap-16">
+      <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">
+        Mūsu Darbi
+      </h2>
+      <div class="flex justify-center">
+        <!-- overflow-x-hidden -->
+        <section class="p-10 relative" id="container">
+          <div id="slider" class="relative w-[1100px] h-[618px]">
+            <SliderItem
+              image={ApImg}
+              title="Dzīvokļa tūre"
+              description="Dzīvokļa tūre ar pielāgotā grafikām"
+            />
+            <SliderItem
+              image={KdImg}
+              title="Bērnudārza reklāma"
+              description="Video reklāma bernudārzam"
+            />
+            <SliderItem
+              image={PcImg}
+              title="Podcast rullītis"
+              description="Podcast video rullītis"
+            />
+            <SliderItem
+              image={Ap2Img}
+              title="3D dzīvoklis"
+              description="Dzivoklis veidots ar Blender un Unreal Engine"
+            />
+          </div>
+          <div class="slider-buttons relative">
+            <div class="relative bottom-9 w-full text-center z-[222222]">
+              <button id="prev" class=""
+                ><Icon
+                  name="material-symbols-light:arrow-circle-left-rounded"
+                  class="text-primary-600 dark:text-primary-300"
+                /></button
+              >
+              <button id="next" class=""
+                ><Icon
+                  name="material-symbols-light:arrow-circle-right-rounded"
+                  class="text-primary-600 dark:text-primary-300"
+                /></button
+              >
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
   </div>
 </section>
 
 <style is:global>
   [data-icon] {
-    color: #fff;
+    /* color: #fff; */
     width: 64px;
     height: 64px;
   }
@@ -111,7 +114,7 @@ import { Icon } from "astro-icon/components";
     z-index: 11111;
   }
 
-  .slider-item-content h2 {
+  .slider-item-content h3 {
     opacity: 0;
     animation: showcontent 0.6s ease-in-out 1 forwards;
   }
@@ -141,14 +144,27 @@ import { Icon } from "astro-icon/components";
 </style>
 
 <script>
-  document.getElementById("next").onclick = function () {
-    let lists = document.querySelectorAll(".slider-item");
-    console.log(lists);
-    document.getElementById("slider").appendChild(lists[0]);
-  };
+  function handleSliderClick() {
+    if (document.getElementById("next")) {
+      document.getElementById("next").onclick = function () {
+        let lists = document.querySelectorAll(".slider-item");
+        document.getElementById("slider").appendChild(lists[0]);
+      };
+    }
 
-  document.getElementById("prev").onclick = function () {
-    let lists = document.querySelectorAll(".slider-item");
-    document.getElementById("slider").prepend(lists[lists.length - 1]);
-  };
+    if (document.getElementById("prev")) {
+      document.getElementById("prev").onclick = function () {
+        let lists = document.querySelectorAll(".slider-item");
+        document.getElementById("slider").prepend(lists[lists.length - 1]);
+      };
+    }
+  }
+
+  document.addEventListener("astro:page-load", () => {
+    handleSliderClick();
+  });
+
+  document.addEventListener("astro:after-swap", () => {
+    handleSliderClick();
+  });
 </script>

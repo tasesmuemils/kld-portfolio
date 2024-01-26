@@ -1,29 +1,33 @@
 ---
-import MainLayout from "../layouts/main-layout.astro";
+import Layout from "../layouts/Layout.astro";
 import Intro from "../components/intro.astro";
 import Slider from "../components/slider.astro";
 import Form from "../components/Form.jsx";
 import SmallSlider from "../components/smallSlider.astro";
+import Hero from "../components/home/Hero.astro";
+import Services from "../components/home/Services.astro";
+import Cta from "../components/pricing/Cta.astro";
+import About from "../components/home/About.astro";
 ---
 
-<MainLayout title="Digital Artist">
-  <Intro />
-  <div class="flex justify-center text-3xl font-bold text-center">
-    <h2>Lielizmēra video</h2>
-  </div>
-  <div class="flex justify-center overflow-x-hidden">
-    <Slider />
-  </div>
+<Layout title="Digital Artist">
+  <!-- <Intro /> -->
+  <Hero />
+  <Services />
+  <Slider />
+  <About />
+
   <!-- <div class="flex justify-center text-3xl font-bold text-center">
     <h2>Instagram/TikTok video</h2>
   </div>
   <div class="flex justify-center overflow-x-hidden">
     <SmallSlider />
   </div> -->
-  <div class="flex justify-center text-3xl font-bold text-center">
+  <!-- <div class="flex justify-center text-3xl font-bold text-center">
     <h2>Sazinies ar mums</h2>
-  </div>
-  <div class="flex justify-center">
+  </div> -->
+  <!-- <div class="flex justify-center">
     <Form client:visible />
-  </div>
-</MainLayout>
+  </div> -->
+  <Cta />
+</Layout>
