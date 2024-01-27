@@ -1,0 +1,138 @@
+---
+import { Image } from "astro:assets";
+import heroImage from "../../assets/hero.png";
+// import { HeroSlider } from "./HeroSlider.jsx";
+import HeroSlider from "./HeroSlider.astro";
+---
+
+<section class="py-16 sm:py-20">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="flex flex-col gap-16">
+      <div class="flex flex-col items-start gap-8 sm:gap-10">
+        <div class="flex max-w-xl flex-col items-start gap-4 sm:gap-6">
+          <h1
+            class="text-4xl font-medium tracking-tight sm:text-5xl lg:text-6xl"
+          >
+            <span class="typed-text"></span><span class="cursor">&nbsp;</span>
+          </h1>
+          <p
+            class="text-primary-950/70 dark:text-primary-200/70 text-lg sm:text-xl"
+          >
+            Realizēsim jebkuras jūsu idejas
+          </p>
+        </div>
+        <!-- <a
+          href="/pricing"
+          class="bg-primary-600 dark:bg-primary-400 hover:bg-primary-700 dark:hover:bg-primary-300 focus-visible:outline-primary-600 dark:focus-visible:outline-primary-400 dark:text-primary-950 inline-flex items-center justify-center rounded-full border border-transparent px-5 py-3 text-base font-medium text-white transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+        >
+          Get started
+        </a> -->
+      </div>
+      <!-- <img
+        class="h-auto w-full rounded-3xl"
+        width="1280"
+        height="640"
+        src="/assets/hero.png"
+        alt="Hero picture"
+      /> -->
+      <!-- <Image
+        src={heroImage}
+        class="h-auto w-full rounded-3xl"
+        width="1280"
+        height="640"
+        alt="Hero picture"
+      /> -->
+      <HeroSlider />
+    </div>
+  </div>
+</section>
+
+<style>
+  .cursor {
+    display: inline-block;
+    background-color: #ccc;
+    margin-left: 0.1rem;
+    width: 3px;
+    animation: blink 1s infinite;
+  }
+  .cursor.typing {
+    animation: none;
+  }
+  @keyframes blink {
+    0% {
+      background-color: #ccc;
+    }
+    49% {
+      background-color: #ccc;
+    }
+    50% {
+      background-color: transparent;
+    }
+    99% {
+      background-color: transparent;
+    }
+    100% {
+      background-color: #ccc;
+    }
+  }
+</style>
+
+<script>
+  function typingAnimation() {
+    if (
+      document.querySelector(".typed-text") &&
+      document.querySelector(".cursor")
+    ) {
+      const typedTextSpan = document.querySelector(".typed-text");
+      const cursorSpan = document.querySelector(".cursor");
+
+      const textArray = ["Tavs sapnis", "Mūsu realitāte", "kld solutions"];
+      const typingDelay = 70;
+      const erasingDelay = 50;
+      const newTextDelay = 1000; // Delay between current and next text
+      let textArrayIndex = 0;
+      let charIndex = 0;
+
+      function type() {
+        if (charIndex < textArray[textArrayIndex].length) {
+          if (!cursorSpan.classList.contains("typing"))
+            cursorSpan.classList.add("typing");
+          typedTextSpan.textContent +=
+            textArray[textArrayIndex].charAt(charIndex);
+          charIndex++;
+          setTimeout(type, typingDelay);
+        } else {
+          cursorSpan.classList.remove("typing");
+          textArrayIndex == 2
+            ? setTimeout(erase, newTextDelay + 1000)
+            : setTimeout(erase, newTextDelay);
+          // setTimeout(erase, newTextDelay);
+        }
+      }
+
+      function erase() {
+        if (charIndex > 0) {
+          if (!cursorSpan.classList.contains("typing"))
+            cursorSpan.classList.add("typing");
+          typedTextSpan.textContent = textArray[textArrayIndex].substring(
+            0,
+            charIndex - 1
+          );
+          charIndex--;
+          setTimeout(erase, erasingDelay);
+        } else {
+          cursorSpan.classList.remove("typing");
+          textArrayIndex++;
+          if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+          setTimeout(type, typingDelay + 100);
+        }
+      }
+
+      if (textArray.length) setTimeout(type, newTextDelay + 250);
+    }
+  }
+
+  document.addEventListener("astro:page-load", () => {
+    typingAnimation();
+  });
+</script>

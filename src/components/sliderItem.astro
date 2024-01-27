@@ -1,31 +1,38 @@
 ---
-const { video, title, description } = Astro.props;
+const { image, title, description } = Astro.props;
+import { Image } from "astro:assets";
 ---
 
 <div
   class="slider-item absolute w-[300px] h-[168px] inline-block top-1/2 z-[1]"
 >
   <div class="video-content relative w-full h-full">
-    <video
+    <!-- <video
       autoplay
       loop
       muted
       class="absolute inset-0 w-full h-full object-cover rounded-2xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-[hsla(0,0%,5%,0)] dark:shadow-black/20"
     >
       <source src={video} type="video/mp4" />
-    </video>
+    </video> -->
+    <Image
+      class="absolute inset-0 w-full h-full object-cover rounded-2xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-[hsla(0,0%,5%,0)] dark:shadow-black/20"
+      src={image}
+      alt=`slider image`
+    />
     <div
-      class="slider-item-content absolute top-1/2 left-10 translate-x-0 -translate-y-1/2 w-2/5 text-left text-white hidden"
+      class="slider-item-content px-6 py-8 rounded-3xl absolute top-[80%] left-10 translate-x-0 -translate-y-1/2 w-2/5 text-left text-white hidden"
     >
-      <h2 class="text-2xl font-bold mb-4">{title}</h2>
-      <p class="mb-4">
+      <!-- <div class="bg-primary-500/10 dark:bg-primary-400/10 flex flex-col gap-12 rounded-3xl px-6 py-8"></div> -->
+      <h3 class="text-xl font-bold mb-2">{title}</h3>
+      <p class="text-base sm:text-lg mb-4">
         {description}
       </p>
-      <!-- <a
+      <a
         href="#"
-        class="inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
-        >Learn More</a
-      > -->
+        class="bg-primary-600 dark:bg-primary-300 hover:bg-primary-700 dark:hover:bg-primary-200 focus-visible:outline-primary-600 dark:focus-visible:outline-primary-400 dark:text-primary-950 inline-flex items-center justify-center rounded-full border border-transparent px-5 py-1 text-base font-medium text-white transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+        >Apskati video</a
+      >
     </div>
   </div>
 </div>
