@@ -1,6 +1,10 @@
 import AOS from "aos";
 
 export function aosInit() {
-  console.log("TEST");
-  AOS.init();
+  AOS.init({
+    duration: 500,
+    easing: "ease-out-cubic",
+    once: true,
+    offset: 50,
+  });
 }
