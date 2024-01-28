@@ -32,7 +32,7 @@ export default function Form() {
           import.meta.env.PUBLIC_GM_SERVICE_ID,
           import.meta.env.PUBLIC_TEMPLATE_ID,
           obj,
-          import.meta.env.EMAIL_KEY
+          import.meta.env.PUBLIC_EMAIL_KEY
         )
         .then(
           (result) => {
