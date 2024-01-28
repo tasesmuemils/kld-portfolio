@@ -7,25 +7,23 @@ import { Image } from "astro:assets";
   class="slider-item absolute w-[300px] h-[168px] inline-block top-1/2 z-[1]"
 >
   <div class="video-content relative w-full h-full">
-    <!-- <video
-      autoplay
-      loop
-      muted
-      class="absolute inset-0 w-full h-full object-cover rounded-2xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-[hsla(0,0%,5%,0)] dark:shadow-black/20"
-    >
-      <source src={video} type="video/mp4" />
-    </video> -->
     <Image
       class="absolute inset-0 w-full h-full object-cover rounded-2xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-[hsla(0,0%,5%,0)] dark:shadow-black/20"
       src={image}
       alt=`slider image`
     />
     <div
-      class="slider-item-content px-6 py-8 rounded-3xl absolute top-[80%] left-10 translate-x-0 -translate-y-1/2 w-2/5 text-left text-white hidden"
+      class="slider-item-content sm:px-6 py-8 rounded-3xl absolute top-[150%] sm:top-[70%] lg:top-[80%] sm:left-2 translate-x-0 -translate-y-1/2 md:w-3/5 lg:w-2/5 text-left text-white hidden"
     >
       <!-- <div class="bg-primary-500/10 dark:bg-primary-400/10 flex flex-col gap-12 rounded-3xl px-6 py-8"></div> -->
-      <h3 class="text-xl font-bold mb-2">{title}</h3>
-      <p class="text-base sm:text-lg mb-4">
+      <h3
+        class="text-xl font-bold mb-2 text-primary-950/70 dark:text-primary-200/70"
+      >
+        {title}
+      </h3>
+      <p
+        class="text-base sm:text-lg mb-4 text-primary-950/70 dark:text-primary-200/70"
+      >
         {description}
       </p>
       <a

@@ -9,16 +9,22 @@ import PcImg from "../assets/image_podcast.jpeg";
 import { Icon } from "astro-icon/components";
 ---
 
-<section class="py-16 sm:py-20">
+<section class="py-24 sm:py-20">
   <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
     <div class="flex flex-col gap-12 sm:gap-16">
-      <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">
+      <h2
+        class="text-3xl font-medium tracking-tight sm:text-4xl"
+        data-aos="fade-up"
+      >
         Mūsu Darbi
       </h2>
-      <div class="flex justify-center">
+      <div class="" data-aos="fade-up">
         <!-- overflow-x-hidden -->
-        <section class="p-10 relative" id="container">
-          <div id="slider" class="relative w-[1100px] h-[618px]">
+        <section class="p-0 xs:p-10 relative" id="container">
+          <div
+            id="slider"
+            class="relative w-full h-[197px] sm:h-[337px] md:h-[371px] lg:h-[506px] xl:h-[618px] [&>*:nth-child(3)]:md:block [&>*:nth-child(3)]:hidden [&>*:nth-child(4)]:md:block [&>*:nth-child(4)]:hidden"
+          >
             <SliderItem
               image={ApImg}
               title="Dzīvokļa tūre"
@@ -45,13 +51,13 @@ import { Icon } from "astro-icon/components";
               <button id="prev" class=""
                 ><Icon
                   name="material-symbols-light:arrow-circle-left-rounded"
-                  class="text-primary-600 dark:text-primary-300"
+                  class="text-primary-600 dark:text-primary-300 w-16 h-16"
                 /></button
               >
               <button id="next" class=""
                 ><Icon
                   name="material-symbols-light:arrow-circle-right-rounded"
-                  class="text-primary-600 dark:text-primary-300"
+                  class="text-primary-600 dark:text-primary-300 w-16 h-16"
                 /></button
               >
             </div>
@@ -63,12 +69,6 @@ import { Icon } from "astro-icon/components";
 </section>
 
 <style is:global>
-  [data-icon] {
-    /* color: #fff; */
-    width: 64px;
-    height: 64px;
-  }
-
   .slider-item:nth-child(1),
   .slider-item:nth-child(2) {
     left: 0;
@@ -95,11 +95,11 @@ import { Icon } from "astro-icon/components";
     left: 55%;
   }
 
-  .slider-item:nth-child(4) {
+  .slider-item:nth-child(n + 4) {
     left: calc(55% + 320px);
   }
 
-  .slider-item:nth-child(5) {
+  /* .slider-item:nth-child(5) {
     left: calc(55% + 540px);
     opacity: 0;
   }
@@ -107,7 +107,7 @@ import { Icon } from "astro-icon/components";
   .slider-item:nth-child(n + 6) {
     left: calc(50% + 760px);
     opacity: 0;
-  }
+  } */
 
   .slider-item:nth-child(2) .slider-item-content {
     display: block;
