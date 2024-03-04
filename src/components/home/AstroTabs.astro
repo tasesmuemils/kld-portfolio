@@ -1,0 +1,101 @@
+---
+import EmblaCarousel from "./tabs_content/EmblaCarousel.astro";
+import { Vimeo } from "@astro-community/astro-embed-vimeo";
+// Images
+import Image1 from "../../assets/image_apartment.jpeg";
+import Image2 from "../../assets/image_apartment6.webp";
+import Image3 from "../../assets/image_apartment3.png";
+import Image4 from "../../assets/image_apartment4.png";
+import Image5 from "../../assets/image_apartment5.jpeg";
+import Image6 from "../../assets/image_apartment6.jpeg";
+import Image7 from "../../assets/astronout.svg";
+import Image8 from "../../assets/image_apartment.jpeg";
+
+const tabLabels = [
+  "Āriene",
+  "Interjers",
+  "Animācijas",
+  "Pirms un Pēc",
+  "Produktu vizualizācijas",
+];
+---
+
+<section class="py-16 sm:py-20">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="flex flex-row items-center">
+      <div class="">
+        <h2 class="text-4xl pr-4">VIZUALIZĀCIJAS</h2>
+      </div>
+      <div
+        class="tab-container ml-14 grow grid grid-flow-col text-center items-center text-gray-500 bg-gray-100 rounded-lg p-1"
+      >
+        {
+          tabLabels.map((label, index) => {
+            return (
+              <button class="tablink" data-tab={`tab${index + 1}`}>
+                {label}
+              </button>
+            );
+          })
+        }
+      </div>
+    </div>
+
+    <div class="pt-5">
+      <div id="tab1" class="tab hidden animate-fade">
+        <!-- <EmblaCarousel images={[Image1, Image6, Image5, Image4]} /> -->
+      </div>
+
+      <div id="tab2" class="tab hidden animate-fade">
+        <!-- <EmblaCarousel images={[Image1, Image2, Image3, Image4]} /> -->
+        <EmblaCarousel images={[Image5, Image6, Image7, Image8]} />
+      </div>
+
+      <div id="tab3" class="tab hidden animate-fade">
+        <Vimeo
+          id="https://vimeo.com/917278056"
+          params="autoplay=1&loop=1&background=1"
+        />
+      </div>
+
+      <div id="
+          tab4" class="tab hidden animate-fade">
+        <h3>Tab 2 Content</h3>
+        <p>This is the content of tab 2.</p>
+      </div>
+
+      <div id="tab5" class="tab hidden animate-fade">
+        <h3>Tab 3 Content</h3>
+        <p>This is the content of tab 3.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const tabLinks = document.querySelectorAll(".tablink");
+
+    tabLinks.forEach((tabLink) => {
+      tabLink.addEventListener("mouseover", function () {
+        const tabName = this.dataset.tab;
+        openTab(tabName);
+      });
+    });
+
+    function openTab(tabName) {
+      const tabcontent = document.querySelectorAll(".tab");
+      tabcontent.forEach((tab) => {
+        tab.classList.add("hidden");
+      });
+
+      const tablinks = document.querySelectorAll(".tablink");
+      tablinks.forEach((tablink) => {
+        tablink.classList.remove("active");
+      });
+
+      document.getElementById(tabName).classList.remove("hidden");
+      document.querySelector(`[data-tab="${tabName}"]`).classList.add("active");
+    }
+  });
+</script>

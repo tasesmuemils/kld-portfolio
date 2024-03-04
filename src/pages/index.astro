@@ -6,11 +6,15 @@ import Services from "../components/home/Services.astro";
 import Cta from "../components/pricing/Cta.astro";
 import About from "../components/home/About.astro";
 import ImageSlider from "../components/home/HeroSlider.astro";
+import Tabs from "../components/home/Tabs";
+import AstroTabs from "../components/home/AstroTabs.astro";
 ---
 
 <Layout title="Digital Artist">
   <!-- <Intro /> -->
   <Hero />
+  <!-- <AstroTabs /> -->
+  <Tabs client:load />
   <Services />
   <Slider />
   <ImageSlider />
