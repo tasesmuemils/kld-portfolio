@@ -29,14 +29,16 @@ import HeroSvg from "../../assets/astronout_hero.svg";
           Get started
         </a> -->
       </div>
-      <Image
+      <!-- <Image
         class="h-auto w-full rounded-3xl"
         width="200"
         src={HeroSvg}
         alt="Hero picture"
         data-aos="fade-left"
         loading="eager"
-      />
+      /> -->
+      <div id="test" class="h-auto w-full rounded-3xl"></div>
+
       <!-- <Image
         src={heroImage}
         class="h-auto w-full rounded-3xl"
@@ -78,6 +80,28 @@ import HeroSvg from "../../assets/astronout_hero.svg";
     }
   }
 </style>
+
+<script>
+  import bodymovin from "bodymovin";
+  import lottie from "lottie-web";
+
+  lottie.loadAnimation({
+    container: document.getElementById("test"), // the dom element that will contain the animation
+    renderer: "svg",
+    loop: true,
+    autoplay: true,
+    path: "src/assets/datas.json", // the path to the animation json
+  });
+
+  // var animation = bodymovin.loadAnimation({
+  //   container: document.getElementById("test"),
+  //   renderer: "svg",
+  //   loop: true,
+  //   autoplay: true,
+  //   // path: "src/assets/hero_anime.json",
+  //   path: "src/assets/test_3.json",
+  // });
+</script>
 
 <script>
   function typingAnimation() {
